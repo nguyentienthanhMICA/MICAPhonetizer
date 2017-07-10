@@ -1,0 +1,31 @@
+@PAD
+b	ɓ	b
+
+
+đ	ɗ	d
+x	s	s
+s	s	s
+gh	ɣ	G
+g	ɣ	G
+kh	x	X
+l	l	l
+v	v	v
+th	tʰ	th
+d	z	z
+gi	z	z
+r	z	z
+ph	f	ph
+tr	c	c
+ch	c	c
+h	h	h
+c	k	k
+k	k	k
+q	k	k
+t	t	t
+p	ɓ	b
+n	n	n
+m	m	m
+nh	ɲ	J
+ngh	ŋ	N
+ng	ŋ	N
+#PAD
