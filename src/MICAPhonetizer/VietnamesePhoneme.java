@@ -73,12 +73,6 @@ public class VietnamesePhoneme {
 	void readPhonemeDatabase(String filename) {
 		
 		String phoneData = readTextFile(filename);
-		
-		System.out.println(phoneData);
-		
-		int startIndex, endIndex;
-		
-//		String[] terms = phoneData.split("[\\s@&.?$+-]+");
 		String[] terms = phoneData.split("[\n]+");
 		
 		for (String s1 : terms) {
@@ -121,7 +115,7 @@ public class VietnamesePhoneme {
 					count++;
 					row = sheet.getRow(count);
 			    } 
-			    System.out.println("Vậy là có tất cả : " + initConL.size() + " phụ âm đầu");
+			   // System.out.println("Vậy là có tất cả : " + initConL.size() + " phụ âm đầu");
 			  //tiếp theo là sheet Phụ âm đầu
 				sheet = wb.getSheetAt(1);
 				count = 1;
@@ -134,7 +128,7 @@ public class VietnamesePhoneme {
 					count++;
 					row = sheet.getRow(count);
 			    } 
-			    System.out.println("Vậy là có tất cả : " + finalConL.size() + " âm cuối");
+			    //System.out.println("Vậy là có tất cả : " + finalConL.size() + " âm cuối");
 			  //tiếp nữa là sheet Nguyên âm
 				sheet = wb.getSheetAt(2);
 				count = 1;
@@ -147,7 +141,7 @@ public class VietnamesePhoneme {
 					count++;
 					row = sheet.getRow(count);
 			    } 
-			    System.out.println("Vậy là có tất cả : " + vowelL.size() + " nguyên âm");
+			   // System.out.println("Vậy là có tất cả : " + vowelL.size() + " nguyên âm");
 			  //cuối cùng là sheet Âm đệm
 				sheet = wb.getSheetAt(3);
 				count = 1;
@@ -160,7 +154,7 @@ public class VietnamesePhoneme {
 					count++;
 					row = sheet.getRow(count);
 			    } 
-			    System.out.println("Vậy là có tất cả : " + midL.size() + " âm đệm");
+			    //System.out.println("Vậy là có tất cả : " + midL.size() + " âm đệm");
 			    
 			    
 			} catch (EncryptedDocumentException | InvalidFormatException | IOException e) {
@@ -172,16 +166,6 @@ public class VietnamesePhoneme {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
-
-	    
-
-	    /*
-	    // Write the output to a file
-	    FileOutputStream fileOut = new FileOutputStream("workbook.xls");
-	    wb.write(fileOut);
-	    fileOut.close();
-	    */
 	}
 	
 	
@@ -637,84 +621,4 @@ public class VietnamesePhoneme {
 
 		return output;
 	}
-
-	//*/
-
-	
-	/*
-	String getToneFromSyllable(String s) {
-
-		if (s.contains("à") || s.contains("ằ") || s.contains("ầ") 
-						|| s.contains("è") || s.contains("ề") || s.contains("ì") 
-						|| s.contains("ỳ") || s.contains("ò") || s.contains("ồ") 
-						|| s.contains("ờ") || s.contains("ù") || s.contains("ừ") )
-					return "2";
-				else if (s.contains("ã") || s.contains("ẵ") || s.contains("ẫ") 
-						|| s.contains("ẽ") || s.contains("ễ") || s.contains("ĩ") 
-						|| s.contains("ỹ") || s.contains("õ") || s.contains("ỗ") 
-						|| s.contains("ỡ") || s.contains("ũ") || s.contains("ữ") )
-					return "3";
-				else if (s.contains("ả") || s.contains("ẳ") || s.contains("ẩ") 
-						|| s.contains("ẻ") || s.contains("ể") || s.contains("ỉ") 
-						|| s.contains("ỷ") || s.contains("ỏ") || s.contains("ổ") 
-						|| s.contains("ở") || s.contains("ủ") || s.contains("ử") )
-					return "4";
-				else if (s.contains("á") || s.contains("ắ") || s.contains("ấ") 
-						|| s.contains("é") || s.contains("ế") || s.contains("í") 
-						|| s.contains("ý") || s.contains("ó") || s.contains("ố") 
-						|| s.contains("ớ") || s.contains("ú") || s.contains("ứ") )
-
-					if (s.contains("ác") || s.contains("ắc") || s.contains("ấc") 
-							|| s.contains("éc") || s.contains("ếc") || s.contains("íc") 
-							|| s.contains("ýc") || s.contains("óc") || s.contains("ốc") 
-							|| s.contains("ớc") || s.contains("úc") || s.contains("ức") 
-
-							|| s.contains("ách") 
-							|| s.contains("ếch") || s.contains("ích") 
-//							|| s.contains("óch") || s.contains("ốch") 
-//							|| s.contains("ớch") || s.contains("úch") 
-//							|| s.contains("ứch") || s.contains("éch") 
-
-							|| s.contains("áp") || s.contains("ắp") || s.contains("ấp") 
-							|| s.contains("ép") || s.contains("ếp") || s.contains("íp") 
-							|| s.contains("ýp") || s.contains("óp") || s.contains("ốp") 
-							|| s.contains("ớp") || s.contains("úp") || s.contains("ứp") 
-
-							|| s.contains("át") || s.contains("ắt") || s.contains("ất") 
-							|| s.contains("ét") || s.contains("ết") || s.contains("ít") 
-							|| s.contains("ýt") || s.contains("ót") || s.contains("ốt") 
-							|| s.contains("ớt") || s.contains("út") || s.contains("ứt"))
-						return "7";
-					else
-						return "5";
-
-				else if (s.contains("ạ") || s.contains("ặ") || s.contains("ậ") 
-						|| s.contains("ẹ") || s.contains("ệ") || s.contains("ị") 
-						|| s.contains("ỵ") || s.contains("ọ") || s.contains("ộ") 
-						|| s.contains("ợ") || s.contains("ụ") || s.contains("ự") )
-
-					if (s.contains("ạc") || s.contains("ặc") || s.contains("ậc") 
-							|| s.contains("ẹc") || s.contains("ịc") || s.contains("ọc") 
-							|| s.contains("ộc") || s.contains("ợc") || s.contains("ục") 
-							|| s.contains("ực") 
-
-							|| s.contains("ạch") || s.contains("ệch") 
-							|| s.contains("ịch") 
-
-							|| s.contains("ạp") || s.contains("ặp") || s.contains("ập") 
-							|| s.contains("ẹp") || s.contains("ệp") || s.contains("ịp") 
-							|| s.contains("ỵp") || s.contains("ọp") || s.contains("ộp") 
-							|| s.contains("ợp") || s.contains("ụp") || s.contains("ựp") 
-
-							|| s.contains("ạt") || s.contains("ặt") || s.contains("ật") 
-							|| s.contains("ẹt") || s.contains("ệt") || s.contains("ịt") 
-							|| s.contains("ỵt") || s.contains("ọt") || s.contains("ột") 
-							|| s.contains("ợt") || s.contains("ụt") || s.contains("ựt"))
-						return "8";
-					else
-						return "6";
-				else
-					return "1";
-	}
-	*/
 }
